@@ -1,0 +1,18 @@
+[
+    {
+      "session_key": 9523,
+      "meeting_key": 1236,
+      "date": "2024-05-26T13:03:22.423000+00:00",
+      "driver_number": 1,
+      "gap_to_leader": 1.46,
+      "interval": 0.277
+    },
+    {
+      "session_key": 9523,
+      "meeting_key": 1236,
+      "date": "2024-05-26T13:03:25.450000+00:00",
+      "driver_number": 1,
+      "gap_to_leader": 1.533,
+      "interval": 0.313
+    }
+]
