@@ -1,11 +1,9 @@
 package big_data.january;
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
-
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
@@ -23,8 +21,16 @@ public class Consumer {
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
 
-        String topic = "monaco-telemetry";
+        String topic = "monza-telemetry";
         consumer.subscribe(Collections.singletonList(topic));
+
+        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            System.out.println("Shutting down consumer!");
+            consumer.close();
+            System.out.println("Consumer closed!");
+        }));
+
+
 
         try {
             while (true) {
@@ -33,6 +39,10 @@ public class Consumer {
                     System.out.println("Received message: " + record.value() +
                             ", Partition: " + record.partition() +
                             ", Offset: " + record.offset());
+                    if(record.value().equals("ALL-LINES-OF-TELEMETRY-READ")){
+                        System.out.println("END OF TELEMETRY. Shutting down consumer!");
+                        return;
+                    }
                 }
             }
         } finally {

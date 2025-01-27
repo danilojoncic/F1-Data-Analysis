@@ -24,9 +24,19 @@ public class Producer {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        String apiUrl = "http://127.0.0.1:8000/monaco-telemetry";
+        String apiUrl = "http://127.0.0.1:8000/monza-telemetry";
 
-        String topic = "monaco-telemetry";
+        String topic = "monza-telemetry";
+
+        //closed program shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread( ()->{
+            System.out.println("Shutting down producer!");
+            //no need for flush here as we are gracefully shutting down!
+            //producer.flush();
+            producer.close();
+            System.out.println("Producer closed!");
+        }));
+
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(apiUrl);
@@ -36,6 +46,16 @@ public class Producer {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     final String curr = line;
+
+
+                    //file end check!
+                    if(curr.equals("ALL-LINES-OF-TELEMETRY-READ")){
+                        System.out.println("ALL TELEMETRY READ. Shutting down producer!");
+                        //no need for flush here
+                        //producer.flush();
+                        producer.close();
+                        break;
+                    }
                     ProducerRecord<String, String> record = new ProducerRecord<>(topic, line);
                     producer.send(record, (metadata, exception) -> {
                         if (exception == null) {

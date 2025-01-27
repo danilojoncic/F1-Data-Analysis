@@ -30,6 +30,8 @@ def generate(csv_file_path):
             csv_string = ",".join([f'"{value}"' for value in row.values()]) + "\n"
             yield csv_string.encode("utf-8")
 
+        yield "ALL-LINES-OF-TELEMETRY-READ".encode("utf-8")
+
 
 @app.get("/monaco-telemetry")
 def stream_csv1():
