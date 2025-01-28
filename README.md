@@ -4,7 +4,6 @@ Exam project for BigData course at RAF
 - Python
 - Pandas
 - PySpark
-- PySpark
 - Docker
 - Databricks Community Edition
 - Apache Kafka Docker Image
