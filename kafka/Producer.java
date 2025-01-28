@@ -28,11 +28,9 @@ public class Producer {
 
         String topic = "monza-telemetry";
 
-        //closed program shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread( ()->{
             System.out.println("Shutting down producer!");
-            //no need for flush here as we are gracefully shutting down!
-            //producer.flush();
+
             producer.close();
             System.out.println("Producer closed!");
         }));
