@@ -2,7 +2,25 @@
 Exam project for BigData course at RAF
 ## ReadMe is Work In Progress, but the code is somewhat final...
 
-## Uses
+## Preface
+This repository contains code for the following: 
+- real time data visualization using Kafka, FastAPI , Java Swing GUI,
+- data analysis on fully loaded datasets using Apache Spark and Pandas on the Databricks platform
+
+## Contents:
+- Data collection and data set creation
+- Kafka (producer and consumer) and real time visualization
+- Databricks analysis
+
+## Data collection and data set creation
+...
+## Kafka (producer and consumer) and real time visualization
+...
+## Databricks analysis
+...
+
+
+## Requirements:
 - Python
 - Pandas
 - Numpy
@@ -15,7 +33,12 @@ Exam project for BigData course at RAF
 - Apache Kafka Consumer CLinet
 - F1 [API](https://openf1.org/)
 
-Analyses of the data are in the notebook and html files within the databricks directory. All the storytime explanations are written in Serbian. 
+## Instructions
+...
+## Thanks
+...
+## Possible additions
+...
 ## Images, Charts and Animations
 ![image](https://github.com/user-attachments/assets/2ef3075b-eeee-4300-9125-a01a2b48924b)
 ![ezgif-4e88cd9d554a2](https://github.com/user-attachments/assets/3f9340f6-4524-43d6-8d6e-04af7dc42f77)
