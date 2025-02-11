@@ -23,24 +23,26 @@ This repository contains code for the following:
 
 
 ## Requirements:
-- Python
-- Pandas
-- Numpy
-- SeaBorn
-- PySpark
+- Python 3.12 with libraries (Pandas, Numpy, FastAPI, SeaBorn, MatPlotLib, PySpark)
 - Docker
-- Databricks Community Edition
+- Databricks Community Edition account for platform access
 - Apache Kafka Docker Image
-- Apache Kafka Producer Client
-- Apache Kafka Consumer CLinet
+- Apache Kafka Producer Java code
+- Apache Kafka Consumer Java code
 - F1 [API](https://openf1.org/)
 
 ## Instructions
-...
-## Thanks
-...
+### Kafka and real time visualization
+To use the visualizer, make sure to have all the requirements (Kafka docker image,Java code for Kafka producer and Consumer and the FastAPI python code with all the necessary datasets)
+Start up the FastAPI service
+Start up docker image with Apache Kafka and Apache Zookeeper
+Start up the Kafka producer and assigne a Kafka topic where the data will be sent
+Start up the Kafka consumer, when active a JavaSwing window will appear, you need to wait a few moments until the Zookeper registers the consumer and the topic becomes availeble for the consumer
+### Databricks
+To access the analyses simpy clone the repository and navigate to the databricks directory, inside of which you can find the .ipnyb and .html generated files.
 ## Possible additions
-...
+- Grafana dashboard for visualization of telemetry in real time
+- Analysis on the entire season data set (>20 races)
 ## Images, Charts and Animations
 ![image](https://github.com/user-attachments/assets/2ef3075b-eeee-4300-9125-a01a2b48924b)
 ![ezgif-4e88cd9d554a2](https://github.com/user-attachments/assets/3f9340f6-4524-43d6-8d6e-04af7dc42f77)
